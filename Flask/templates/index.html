@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Percentage Calculator for the Project Different Modalities of Care (Audio, Audiovisual and In person) for the Patients with Mental Health Disorder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div id="calculator_wrapper">
+        <h1>Percentage Calculator for the Project Different Modalities of Care (Audio, Audiovisual and In person) for the Patients with Mental Health Disorder</h1>
+    <select id="type_selector">
+        <option value="Audio">Audio</option>
+        <option value="Audiovisual">Audiovisual</option>
+        <option value="In_Person">In-Person</option>
+        <option value="None1">None</option>
+    </select>
+    <input type="number" id="x_value">
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"><!-- Result will be displayed here --></div>
+</div>
+
+    <script>
+    function calculate() {
+        var selected_type = $('#type_selector').val();
+        var x_value = $('#x_value').val();
+
+        $.ajax({
+            url: '/calculate',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({selected_type: selected_type, x_value: x_value}),
+            success: function(data) {
+                $('#result').html(`${selected_type} Percentage: ${data.result.toFixed(1)}%`);
+            }
+        });
+    }
+
+    // Event listener for the Enter key
+    $(document).ready(function() {
+        $('#x_value').keypress(function(event) {
+            if (event.keyCode === 13) {  // Enter key code is 13
+                calculate();
+            }
+        });
+    });
+    </script>
+</body>
+</html>

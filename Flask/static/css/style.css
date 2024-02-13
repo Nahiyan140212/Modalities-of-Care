@@ -1,0 +1,75 @@
+/* General Styles */
+body, h1, select, input, button, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../images/image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+   
+
+    background-repeat: no-repeat;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4; /* Lighter background for better contrast */
+    padding: 20px; /* Adds padding around the body content */
+}
+
+#calculator_wrapper {
+    background-color: #ffffff; /* Light background for the form area */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    width: 100%;
+    max-width: 500px; /* Slightly wider for better layout */
+    margin: auto; /* Center the wrapper in the viewport */
+}
+
+/* Title Styles */
+h1 {
+    color: #2c3e50; /* Darker color for better readability */
+    margin-bottom: 30px; /* Increased space below the title */
+    font-size: 18px; /* Larger font size for prominence */
+}
+
+/* Form Element Styles */
+select, input[type="number"] {
+    width: calc(100% - 30px); /* Adjust width to account for padding */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #0056b3; /* Thicker border with primary color */
+    border-radius: 4px;
+    font-size: 18px; /* Larger font size for better readability */
+    color: #333;
+    background-color: #ecf0f1; /* Subtle background color */
+}
+
+/* Button Styles */
+button {
+    width: 40%; /* Button takes full width for better touch target */
+    padding: 15px;
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px; /* Slightly larger font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Added transform to transition */
+}
+
+button:hover {
+    background-color: #003d82;
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Result Display Enhancements */
+#result {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: #0056b3; /* Use primary color for result to tie design together */
+    font-weight: bold; /* Make the result more prominent */
+}
